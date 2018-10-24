@@ -7,7 +7,7 @@ target 'RxSwiftStudyDemo' do
   
   pod 'RxSwift'
   pod 'RxCocoa'
-
+  pod 'RxDataSources'
   # Pods for RxSwiftStudyDemo
 
 end

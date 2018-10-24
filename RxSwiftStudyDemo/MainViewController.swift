@@ -9,7 +9,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
-
+import RxDataSources
 
 class MainViewController: UIViewController {
 
@@ -25,19 +25,124 @@ class MainViewController: UIViewController {
         self.view.addSubview(self.tableView)
         
         //初始化数据
-        let items = Observable.just([
-            "文本输入框的用法",
-            "开关按钮的用法",
-            "进度条的用法",
-            "文本标签的用法",
+//        let items = Observable.just([
+//            "文本输入框的用法",
+//            "开关按钮的用法",
+//            "进度条的用法",
+//            "文本标签的用法",
+//            ])
+        
+        
+        //初始化数据
+        let sections = Observable.just([
+            MySection(header: "基本控件", items: [
+                "UILable的用法",
+                "UIText的用法",
+                "UIButton的用法"
+                ]),
+            MySection(header: "高级控件", items: [
+                "UITableView的用法",
+                "UICollectionViews的用法"
+                ])
             ])
+        
+        //创建数据源
+        let dataSource = RxTableViewSectionedAnimatedDataSource<MySection>(
+            //设置单元格
+            configureCell: { ds, tv, ip, item in
+                let cell = tv.dequeueReusableCell(withIdentifier: "Cell")
+                    ?? UITableViewCell(style: .default, reuseIdentifier: "Cell")
+                cell.textLabel?.text = "\(ip.row)：\(item)"
+                
+                return cell
+        },
+            //设置分区头标题
+            titleForHeaderInSection: { ds, index in
+                return ds.sectionModels[index].header
+        }
+        )
+        
+        //绑定单元格数据
+        sections
+            .bind(to: tableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+        
+        //初始化数据
+//        let items = Observable.just([
+//            SectionModel(model: "基本控件", items: [
+//                "UILable的用法",
+//                "UIText的用法",
+//                "UIButton的用法"
+//                ]),
+//            SectionModel(model: "高级控件", items: [
+//                "UITableView的用法",
+//                "UICollectionViews的用法"
+//                ])
+//            ])
+//
+//        //创建数据源
+//        let dataSource = RxTableViewSectionedReloadDataSource
+//            <SectionModel<String, String>>(configureCell: {
+//                (dataSource, tv, indexPath, element) in
+//                let cell = tv.dequeueReusableCell(withIdentifier: "cell")!
+//                cell.textLabel?.text = "\(indexPath.row)：\(element)"
+//                return cell
+//            })
+//
+//        //设置分区头标题
+//        dataSource.titleForHeaderInSection = { ds, index in
+//            return ds.sectionModels[index].model
+//        }
+//        //绑定单元格数据
+//        items
+//            .bind(to: tableView.rx.items(dataSource: dataSource))
+//            .disposed(by: disposeBag)
+        // 使用自定义section
+        //初始化数据
+//        let sections = Observable.just([
+//            MySection(header: "", items: [
+//                "UILable的用法",
+//                "UIText的用法",
+//                "UIButton的用法"
+//                ])
+//            ])
+        //创建数据源
+//        let dataSource = RxTableViewSectionedAnimatedDataSource<MySection>(
+//            //设置单元格
+//            configureCell: { ds, tv, ip, item in
+//                let cell = tv.dequeueReusableCell(withIdentifier: "cell")
+//                    ?? UITableViewCell(style: .default, reuseIdentifier: "cell")
+//                cell.textLabel?.text = "\(ip.row)：\(item)"
+//
+//                return cell
+//        })
+        
+        //绑定单元格数据
+//        sections
+//            .bind(to: tableView.rx.items(dataSource: dataSource))
+//            .disposed(by: disposeBag)
+//
+        
+        //创建数据源
+//        let dataSource = RxTableViewSectionedReloadDataSource
+//            <SectionModel<String, String>>(configureCell: {
+//                (dataSource, tv, indexPath, element) in
+//                let cell = tv.dequeueReusableCell(withIdentifier: "cell")!
+//                cell.textLabel?.text = "\(indexPath.row)：\(element)"
+//                return cell
+//            })
+//
+//        //绑定单元格数据
+//        items
+//            .bind(to: tableView.rx.items(dataSource: dataSource))
+//            .disposed(by: disposeBag)
 
          //设置单元格数据（其实就是对 cellForRowAt 的封装）
-        items.bind(to: tableView.rx.items) { (tableView, row, element) in
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
-            cell.textLabel?.text = "\(row)：\(element)"
-            return cell
-        }.disposed(by: disposeBag)
+//        items.bind(to: tableView.rx.items) { (tableView, row, element) in
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
+//            cell.textLabel?.text = "\(row)：\(element)"
+//            return cell
+//        }.disposed(by: disposeBag)
         
         // 业务代码直接放在响应方法内部，可以这么写
         //获取选中项的索引
@@ -100,3 +205,24 @@ class MainViewController: UIViewController {
     }
 
 }
+
+//自定义Section
+struct MySection {
+    var header: String
+    var items: [Item]
+}
+
+extension MySection : AnimatableSectionModelType {
+    typealias Item = String
+    
+    var identity: String {
+        return header
+    }
+    
+    init(original: MySection, items: [Item]) {
+        self = original
+        self.items = items
+    }
+}
+
+
