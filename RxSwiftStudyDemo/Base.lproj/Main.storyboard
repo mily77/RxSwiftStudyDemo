@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ijg-rO-3IJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ijg-rO-3IJ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,9 +21,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="Se5-fi-KSW">
                         <barButtonItem key="leftBarButtonItem" title="停止" id="xHK-mo-frm"/>
-                        <barButtonItem key="rightBarButtonItem" title="刷新" id="ica-9f-Unt"/>
+                        <rightBarButtonItems>
+                            <barButtonItem title="刷新" id="ica-9f-Unt"/>
+                            <barButtonItem title="加号" id="W7f-Tu-79O"/>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="addButton" destination="W7f-Tu-79O" id="RwO-1s-5WN"/>
                         <outlet property="cancelButton" destination="xHK-mo-frm" id="PjW-OE-24f"/>
                         <outlet property="refreshButton" destination="ica-9f-Unt" id="VE9-t3-D8f"/>
                     </connections>

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		73417B7B97DC517ED0CAAC11 /* Pods_RxSwiftStudyDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7AB7804B0442FC0BC9EFBF9 /* Pods_RxSwiftStudyDemo.framework */; };
 		A1072DFE2180462B005A0372 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1072DFD2180462B005A0372 /* MainViewController.swift */; };
+		A135D63D218FE09A00A11A2F /* TableEditingCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = A135D63C218FE09A00A11A2F /* TableEditingCommand.swift */; };
+		A135D63F218FE0D700A11A2F /* TableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A135D63E218FE0D700A11A2F /* TableViewModel.swift */; };
 		A1DE44B3217C26630061E5FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DE44B2217C26630061E5FA /* AppDelegate.swift */; };
 		A1DE44B5217C26630061E5FA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DE44B4217C26630061E5FA /* ViewController.swift */; };
 		A1DE44B8217C26630061E5FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1DE44B6217C26630061E5FA /* Main.storyboard */; };
@@ -19,6 +21,8 @@
 /* Begin PBXFileReference section */
 		085096E21FD239EADC7010A6 /* Pods-RxSwiftStudyDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftStudyDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxSwiftStudyDemo/Pods-RxSwiftStudyDemo.release.xcconfig"; sourceTree = "<group>"; };
 		A1072DFD2180462B005A0372 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		A135D63C218FE09A00A11A2F /* TableEditingCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableEditingCommand.swift; sourceTree = "<group>"; };
+		A135D63E218FE0D700A11A2F /* TableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModel.swift; sourceTree = "<group>"; };
 		A1DE44AF217C26630061E5FA /* RxSwiftStudyDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSwiftStudyDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1DE44B2217C26630061E5FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1DE44B4217C26630061E5FA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +83,8 @@
 				A1DE44B9217C26640061E5FA /* Assets.xcassets */,
 				A1DE44BB217C26640061E5FA /* LaunchScreen.storyboard */,
 				A1DE44BE217C26640061E5FA /* Info.plist */,
+				A135D63C218FE09A00A11A2F /* TableEditingCommand.swift */,
+				A135D63E218FE0D700A11A2F /* TableViewModel.swift */,
 			);
 			path = RxSwiftStudyDemo;
 			sourceTree = "<group>";
@@ -210,8 +216,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1072DFE2180462B005A0372 /* MainViewController.swift in Sources */,
+				A135D63F218FE0D700A11A2F /* TableViewModel.swift in Sources */,
 				A1DE44B5217C26630061E5FA /* ViewController.swift in Sources */,
 				A1DE44B3217C26630061E5FA /* AppDelegate.swift in Sources */,
+				A135D63D218FE09A00A11A2F /* TableEditingCommand.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
