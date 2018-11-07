@@ -12,6 +12,7 @@
 		A135D63D218FE09A00A11A2F /* TableEditingCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = A135D63C218FE09A00A11A2F /* TableEditingCommand.swift */; };
 		A135D63F218FE0D700A11A2F /* TableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A135D63E218FE0D700A11A2F /* TableViewModel.swift */; };
 		A15FB45A21917F01003D2A72 /* SessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15FB45921917F01003D2A72 /* SessionViewController.swift */; };
+		A16DCE792192CA250017A2A1 /* RxObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16DCE782192CA250017A2A1 /* RxObjectMapper.swift */; };
 		A1DE44B3217C26630061E5FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DE44B2217C26630061E5FA /* AppDelegate.swift */; };
 		A1DE44B5217C26630061E5FA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DE44B4217C26630061E5FA /* ViewController.swift */; };
 		A1DE44B8217C26630061E5FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1DE44B6217C26630061E5FA /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 		A135D63C218FE09A00A11A2F /* TableEditingCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableEditingCommand.swift; sourceTree = "<group>"; };
 		A135D63E218FE0D700A11A2F /* TableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModel.swift; sourceTree = "<group>"; };
 		A15FB45921917F01003D2A72 /* SessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionViewController.swift; sourceTree = "<group>"; };
+		A16DCE782192CA250017A2A1 /* RxObjectMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxObjectMapper.swift; sourceTree = "<group>"; };
 		A1DE44AF217C26630061E5FA /* RxSwiftStudyDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSwiftStudyDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1DE44B2217C26630061E5FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1DE44B4217C26630061E5FA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				A135D63C218FE09A00A11A2F /* TableEditingCommand.swift */,
 				A135D63E218FE0D700A11A2F /* TableViewModel.swift */,
 				A15FB45921917F01003D2A72 /* SessionViewController.swift */,
+				A16DCE782192CA250017A2A1 /* RxObjectMapper.swift */,
 			);
 			path = RxSwiftStudyDemo;
 			sourceTree = "<group>";
@@ -195,6 +198,8 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RxSwiftStudyDemo/Pods-RxSwiftStudyDemo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
@@ -202,6 +207,8 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
@@ -224,6 +231,7 @@
 				A15FB45A21917F01003D2A72 /* SessionViewController.swift in Sources */,
 				A1DE44B3217C26630061E5FA /* AppDelegate.swift in Sources */,
 				A135D63D218FE09A00A11A2F /* TableEditingCommand.swift in Sources */,
+				A16DCE792192CA250017A2A1 /* RxObjectMapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,8 @@ target 'RxSwiftStudyDemo' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'RxDataSources'
+  pod 'ObjectMapper', '~> 3.3.0'
+#  pod 'ObjectMapper'
   # Pods for RxSwiftStudyDemo
 
 end
