@@ -28,7 +28,7 @@ class MainViewController: UIViewController {
         
         initTableView()
 //        rxBindDataSource()
-//        tableRxDelegate()
+        tableRxDelegate()
 //
         let initialVM = TableViewModel()
 
@@ -66,11 +66,11 @@ class MainViewController: UIViewController {
             .bind(to: tableView.rx.items(dataSource: MainViewController.dataSource2()))
             .disposed(by: disposeBag)
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        tableView.setEditing(true, animated: true)
-    }
+//
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        tableView.setEditing(true, animated: true)
+//    }
     
 
     //获取随机数据
@@ -122,6 +122,8 @@ extension MainViewController {
                                                    width: self.view.bounds.size.width, height: 56))
         self.tableView.tableHeaderView =  self.searchBar
     }
+    
+    
 }
 
 
@@ -270,21 +272,23 @@ extension MainViewController {
     func tableRxDelegate() {
         // 业务代码直接放在响应方法内部，可以这么写
         //获取选中项的索引
-//        tableView.rx.itemSelected.subscribe(onNext: { indexPath in
-//            print("选中项的indexPath为：\(indexPath)")
-//        }).disposed(by: disposeBag)
+        tableView.rx.itemSelected.subscribe(onNext: { indexPath in
+            print("选中项的indexPath为：\(indexPath)")
+            let sessionVC = SessionViewController()            
+            self.navigationController?.pushViewController(sessionVC, animated: true)
+        }).disposed(by: disposeBag)
 //
 //        //获取选中项的内容
 //        tableView.rx.modelSelected(String.self).subscribe(onNext: { item in
 //            print("选中项的标题为：\(item)")
 //        }).disposed(by: disposeBag)
         // 同时获取选中项的索引及内容也是可以的
-        Observable.zip(tableView.rx.itemSelected, tableView.rx.modelSelected(String.self))
-            .bind { [weak self] indexPath, item in
-                self?.showMessage("选中项的indexPath为：\(indexPath)")
-                self?.showMessage("选中项的标题为：\(item)")
-            }
-            .disposed(by: disposeBag)
+//        Observable.zip(tableView.rx.itemSelected, tableView.rx.modelSelected(String.self))
+//            .bind { [weak self] indexPath, item in
+//                self?.showMessage("选中项的indexPath为：\(indexPath)")
+//                self?.showMessage("选中项的标题为：\(item)")
+//            }
+//            .disposed(by: disposeBag)
         
         //获取被取消选中项的索引
         tableView.rx.itemDeselected.subscribe(onNext: { [weak self] indexPath in
@@ -302,21 +306,21 @@ extension MainViewController {
         }).disposed(by: disposeBag)
         
         //获取删除项的内容
-        tableView.rx.modelDeleted(String.self).subscribe(onNext: {[weak self] item in
-            self?.showMessage("删除项的的标题为：\(item)")
-        }).disposed(by: disposeBag)
+//        tableView.rx.modelDeleted(String.self).subscribe(onNext: {[weak self] item in
+//            self?.showMessage("删除项的的标题为：\(item)")
+//        }).disposed(by: disposeBag)
         
         //获取移动项的索引
-        tableView.rx.itemMoved.subscribe(onNext: { [weak self]
-            sourceIndexPath, destinationIndexPath in
-            self?.showMessage("移动项原来的indexPath为：\(sourceIndexPath)")
-            self?.showMessage("移动项现在的indexPath为：\(destinationIndexPath)")
-        }).disposed(by: disposeBag)
+//        tableView.rx.itemMoved.subscribe(onNext: { [weak self]
+//            sourceIndexPath, destinationIndexPath in
+//            self?.showMessage("移动项原来的indexPath为：\(sourceIndexPath)")
+//            self?.showMessage("移动项现在的indexPath为：\(destinationIndexPath)")
+//        }).disposed(by: disposeBag)
         
         //获取点击的尾部图标的索引
-        tableView.rx.itemAccessoryButtonTapped.subscribe(onNext: { [weak self] indexPath in
-            self?.showMessage("尾部项的indexPath为：\(indexPath)")
-        }).disposed(by: disposeBag)
+//        tableView.rx.itemAccessoryButtonTapped.subscribe(onNext: { [weak self] indexPath in
+//            self?.showMessage("尾部项的indexPath为：\(indexPath)")
+//        }).disposed(by: disposeBag)
     }
     
 }
