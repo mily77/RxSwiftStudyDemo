@@ -9,6 +9,8 @@ target 'RxSwiftStudyDemo' do
   pod 'RxCocoa'
   pod 'RxDataSources'
   pod 'ObjectMapper', '~> 3.3.0'
+  pod 'Alamofire'
+  pod 'RxAlamofire'
 #  pod 'ObjectMapper'
   # Pods for RxSwiftStudyDemo
 
