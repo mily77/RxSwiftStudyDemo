@@ -9,7 +9,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
-
+import Alamofire
 
 class SessionViewController: UIViewController {
 
@@ -61,25 +61,26 @@ class SessionViewController: UIViewController {
         }).disposed(by: disposeBag)
         
         //获取列表数据
-        let data = URLSession.shared.rx.json(request: request).map { (result) -> [[String: Any]] in
-            if let data = result as? [String: Any],let channels = data["channels"] as? [[String: Any]]{
-                return channels
-            
-            }else{
-                return []
-            }
+//        let data = URLSession.shared.rx.json(request: request).map { (result) -> [[String: Any]] in
+//            if let data = result as? [String: Any],let channels = data["channels"] as? [[String: Any]]{
+//                return channels
+//
+//            }else{
+//                return []
+//            }
+//        }
+        
+        let data = URLSession.shared.rx.json(request: request)
+            .mapObject(type: Douban.self)
+            .map {
+            $0.channels ?? []
         }
         
-        //将数据绑定到表格
-//        data.bind(to: tableView.rx.items) { (tableView, row, element) in
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
-//            cell.textLabel?.text = "\(row)：\(element["name"]!)"
-//            return cell
-//            }.disposed(by: disposeBag)
         
+        //将数据绑定到表格
         data.bind(to: tableView.rx.items) { (tableView, row, element) in
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
-            cell.textLabel?.text = "\(row)：\(element["name"]!)"
+            cell.textLabel?.text = "\(row)：\(element.name!)"
             return cell
         }.disposed(by: disposeBag)
     }
